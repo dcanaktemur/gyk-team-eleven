@@ -12,10 +12,10 @@ public class MasterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference("teachers");
 
-        myRef.setValue("Hello, World!");
-        //System.out.println("printed");
+        myRef.setValue("value1");
+
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
