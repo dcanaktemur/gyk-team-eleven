@@ -1,8 +1,9 @@
-package com.gyk.teameleven.gykteameleven.Model;
+package com.gyk.teameleven.gykteameleven.model;
 
 import java.io.Serializable;
 
-public class Teacher  implements Serializable {
+public class Teacher implements Serializable {
+
     private long id;
     private String name;
     private String surname;
@@ -14,15 +15,11 @@ public class Teacher  implements Serializable {
     private String email;
     private String comments;
 
-    public String getComments() {
-        return comments;
+    public long getId() {
+        return id;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -38,24 +35,24 @@ public class Teacher  implements Serializable {
         return surname;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public void setStars(int stars) {
+    public long getStars() {
+        return stars;
+    }
+
+    public void setStars(long stars) {
         this.stars = stars;
+    }
+
+    public long getStatus() {
+        return status;
+    }
+
+    public void setStatus(long status) {
+        this.status = status;
     }
 
     public String getFavoriteTopics() {
@@ -88,5 +85,13 @@ public class Teacher  implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }
