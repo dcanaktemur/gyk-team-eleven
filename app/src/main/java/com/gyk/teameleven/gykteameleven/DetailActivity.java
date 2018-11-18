@@ -1,7 +1,6 @@
 package com.gyk.teameleven.gykteameleven;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this,CallActivity.class);
+                Intent intent = new Intent(DetailActivity.this, CallActivity.class);
                 startActivity(intent);
             }
         });

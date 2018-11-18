@@ -58,9 +58,9 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
         public TeacherViewHolder(View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.nameSurname);
-            topics = (TextView) itemView.findViewById(R.id.favoriteTopics);
-            rating = (RatingBar) itemView.findViewById(R.id.ratingBar);
+            name = itemView.findViewById(R.id.nameSurname);
+            topics = itemView.findViewById(R.id.favoriteTopics);
+            rating = itemView.findViewById(R.id.ratingBar);
             avatar = itemView.findViewById(R.id.avatar);
             itemView.setOnClickListener(this);
         }
