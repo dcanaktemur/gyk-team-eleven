@@ -1,7 +1,7 @@
 package com.gyk.teameleven.gykteameleven;
 
-
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,10 +23,8 @@ public class DetailActivity extends AppCompatActivity {
 
         TextView name, email, description, favoriteTopics, comments;
         RatingBar stars;
-
-        ImageButton callButton;
-        int status;
         ImageView photo;
+        ImageButton callButton = findViewById(R.id.callButton);
 
         //Views
         name = findViewById(R.id.nameSurname);
@@ -35,8 +33,7 @@ public class DetailActivity extends AppCompatActivity {
         favoriteTopics = findViewById(R.id.favoriteTopics);
         comments = findViewById(R.id.comments);
         photo = findViewById(R.id.avatar);
-        stars = (RatingBar) findViewById(R.id.ratingBar);
-        callButton = (ImageButton) findViewById(R.id.callButton);
+        stars = findViewById(R.id.ratingBar);
 
         //Setters
         name.setText(teacher.getName() + " " + teacher.getSurname());
@@ -48,12 +45,14 @@ public class DetailActivity extends AppCompatActivity {
                 .load(teacher.getPhotoUrl())
                 .into(photo);
         stars.setRating(teacher.getStars());
+
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, CallActivity.class);
+                Intent intent = new Intent(DetailActivity.this,CallActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 }
