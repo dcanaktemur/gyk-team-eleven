@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.gyk.teameleven.gykteameleven.Model.Teacher;
-
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -29,7 +28,6 @@ public class TeacherAdapter extends RecyclerView.Adapter<MyViewHolder>
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
-
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
