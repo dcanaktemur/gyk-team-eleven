@@ -1,8 +1,9 @@
 package com.gyk.teameleven.gykteameleven.Model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Teacher {
+public class Teacher  implements Serializable {
     private int id;
     private String name;
     private String surname;

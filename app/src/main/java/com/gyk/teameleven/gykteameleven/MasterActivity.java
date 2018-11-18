@@ -1,37 +1,37 @@
 package com.gyk.teameleven.gykteameleven;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import com.google.firebase.database.*;
+import java.util.ArrayList;
 
-public class MasterActivity extends AppCompatActivity {
+
+public class MasterActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.master_layout);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("teachers");
-
-        myRef.setValue("value1");
-
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
+        final RecyclerView recyclerView = (RecyclerView)findViewById(R.id.teacherListView) ;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+        
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                //Log.d(TAG, "Value is: " + value);
-                System.out.println("Value is "+value);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList td = (ArrayList) dataSnapshot.getValue();
+                TeacherAdapter adapter = new TeacherAdapter(MasterActivity.this,td);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException());
-                System.out.println("Failed to read value. "+error.toException());
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
