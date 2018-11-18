@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/imageView"
             android:layout_marginStart="8dp"/>
     <RatingBar
-            style="?android:attr/ratingBarStyleSmall"
+            style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="102dp"
             android:layout_height="24dp"
             android:id="@+id/ratingBar"
@@ -29,7 +29,7 @@
             android:numStars="5"
             android:stepSize="1" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/nameSurname" app:layout_constraintStart_toEndOf="@+id/imageView"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp" android:isIndicator="false"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
