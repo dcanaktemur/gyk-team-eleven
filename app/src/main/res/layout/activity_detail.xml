@@ -96,7 +96,7 @@
     <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp" app:srcCompat="@drawable/baseline_video_call_24"
-            android:id="@+id/imageButton" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/callButton" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginTop="44dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ratingBar" android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.562"/>
