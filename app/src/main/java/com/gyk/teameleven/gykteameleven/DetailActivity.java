@@ -45,6 +45,9 @@ public class DetailActivity extends AppCompatActivity {
                 .into(photo);
         stars.setRating(teacher.getStars());
 
+        if(teacher.getStatus() == 0){
+            callButton.setEnabled(false);
+        }
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
