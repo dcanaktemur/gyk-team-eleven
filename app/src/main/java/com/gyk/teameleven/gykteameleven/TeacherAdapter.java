@@ -12,17 +12,15 @@ import com.bumptech.glide.Glide;
 import com.gyk.teameleven.gykteameleven.model.Teacher;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
-public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherViewHolder>
-{
+public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherViewHolder> {
     ArrayList teacherList;
     LayoutInflater inflater;
     Context context;
     private ListItemClickListener itemClickListener;
 
-    public TeacherAdapter(Context context, ArrayList<Teacher> teachers,ListItemClickListener listItemClickListener){
+    public TeacherAdapter(Context context, ArrayList<Teacher> teachers, ListItemClickListener listItemClickListener) {
         inflater = LayoutInflater.from(context);
         this.teacherList = teachers;
         this.context = context;
@@ -36,13 +34,12 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         return holder;
     }
 
-
     @Override
     public void onBindViewHolder(TeacherViewHolder holder, int position) {
-        Map<String,Object> selectedTeacher = (Map<String, Object>) teacherList.get(position);
-        holder.name.setText(selectedTeacher.get("name")+" "+selectedTeacher.get("surname"));
+        Map<String, Object> selectedTeacher = (Map<String, Object>) teacherList.get(position);
+        holder.name.setText(selectedTeacher.get("name") + " " + selectedTeacher.get("surname"));
         holder.topics.setText(selectedTeacher.get("favorite_topics").toString());
-        holder.rating.setRating((Long)selectedTeacher.get("stars"));
+        holder.rating.setRating((Long) selectedTeacher.get("stars"));
         Glide.with(context)
                 .load(selectedTeacher.get("photo_url"))
                 .into(holder.avatar);
@@ -54,13 +51,12 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
     }
 
 
-
     public class TeacherViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView name,topics;
+        public TextView name, topics;
         public ImageView avatar;
         public RatingBar rating;
 
-        public TeacherViewHolder(View itemView){
+        public TeacherViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.nameSurname);
             topics = (TextView) itemView.findViewById(R.id.favoriteTopics);
@@ -72,9 +68,9 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-            Map<String,Object> teacherMap = (Map<String, Object>) teacherList.get(adapterPosition);
+            Map<String, Object> teacherMap = (Map<String, Object>) teacherList.get(adapterPosition);
             Teacher item = new Teacher();
-            item.setId((Long)teacherMap.get("id"));
+            item.setId((Long) teacherMap.get("id"));
             item.setPhotoUrl(teacherMap.get("photo_url").toString());
             item.setComments(teacherMap.get("comments").toString());
             item.setDescription(teacherMap.get("description").toString());
@@ -82,7 +78,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
             item.setFavoriteTopics(teacherMap.get("favorite_topics").toString());
             item.setName(teacherMap.get("name").toString());
             item.setSurname(teacherMap.get("surname").toString());
-            item.setStars((Long)teacherMap.get("stars"));
+            item.setStars((Long) teacherMap.get("stars"));
             item.setStatus((Long) teacherMap.get("status"));
             itemClickListener.onItemClick(item);
         }
