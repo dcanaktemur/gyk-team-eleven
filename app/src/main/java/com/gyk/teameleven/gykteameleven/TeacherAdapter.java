@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.gyk.teameleven.gykteameleven.model.Teacher;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         holder.rating.setRating((Long) selectedTeacher.get("stars"));
         Glide.with(context)
                 .load(selectedTeacher.get("photo_url"))
+                .apply(RequestOptions.circleCropTransform())
                 .into(holder.avatar);
     }
 

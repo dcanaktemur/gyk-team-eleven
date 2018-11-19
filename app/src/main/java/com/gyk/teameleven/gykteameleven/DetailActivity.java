@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.gyk.teameleven.gykteameleven.model.Teacher;
 
 public class DetailActivity extends AppCompatActivity {
@@ -42,6 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         comments.setText(teacher.getComments());
         Glide.with(this)
                 .load(teacher.getPhotoUrl())
+                .apply(RequestOptions.circleCropTransform())
                 .into(photo);
         stars.setRating(teacher.getStars());
 
